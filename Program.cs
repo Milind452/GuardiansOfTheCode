@@ -1,2 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using GuardiansOfTheCode;
+
+PrimaryPlayer player = PrimaryPlayer.Instance;
+Console.WriteLine($"{player.Name} - lvl {player.Level}");
