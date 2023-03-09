@@ -13,13 +13,7 @@ namespace GuardiansOfTheCode
             _instance = new PrimaryPlayer() { Name = "Raptor", Level = 1 };
         }
 
-        public static PrimaryPlayer Instance
-        {
-            get
-            {
-                return _instance;
-            }
-        }
+        public static PrimaryPlayer Instance { get => _instance; }
 
         public string Name { get; set; }
 
