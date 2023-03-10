@@ -8,6 +8,12 @@ namespace GuardiansOfTheCode
 
         public int Level => _level;
 
+        public Werewolf(int health, int level)
+        {
+            _health = health;
+            _level = level;
+        }
+
         public void Attack(PrimaryPlayer player)
         {
             Console.WriteLine("Werewolf attacking " + player.Name);
