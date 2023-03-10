@@ -1,8 +1,8 @@
 namespace GuardiansOfTheCode
 {
-    public class EnemyFactory
+    public static class EnemyFactory
     {
-        public Werewolf SpawnWerewolf(int areaLevel)
+        public static Werewolf SpawnWerewolf(int areaLevel)
         {
             if (areaLevel < 5)
             {
@@ -14,7 +14,7 @@ namespace GuardiansOfTheCode
             }
         }
 
-        public Giant SpawnGiant(int areaLevel)
+        public static Giant SpawnGiant(int areaLevel)
         {
             if (areaLevel < 8)
             {
@@ -26,7 +26,7 @@ namespace GuardiansOfTheCode
             }
         }
 
-        public Zombie SpawnZombie(int areaLevel)
+        public static Zombie SpawnZombie(int areaLevel)
         {
             if (areaLevel < 3)
             {
