@@ -7,6 +7,7 @@ namespace GuardiansOfTheCode
         public GameBoard()
         {
             _player = PrimaryPlayer.Instance;
+            _player.Weapon = new Sword(12, 8);
         }
 
         public void PlayArea(int lvl)
