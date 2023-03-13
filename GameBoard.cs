@@ -31,7 +31,14 @@ namespace GuardiansOfTheCode
 
             foreach (var enemy in enemies)
             {
-                System.Console.WriteLine(enemy.GetType());
+                while(enemy.Health > 0 || _player.Health > 0) {
+                    System.Console.WriteLine(enemy.Health + "  " + enemy.Armor);
+                    _player.Weapon.Use(enemy);
+                    enemy.Attack(_player);
+                    System.Console.WriteLine(enemy.Health + "  " + enemy.Armor);
+                    break;
+                }
+                break;
             }
         }
     }
