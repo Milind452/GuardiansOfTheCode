@@ -3,7 +3,7 @@ namespace GuardiansOfTheCode
     public class Sword : IWeapon
     {
         private int _damage;
-        public int Damage {get => _damage; }
+        public int Damage { get => _damage; }
         private int _armorDamage;
         public int ArmorDamage { get => _armorDamage; }
 
