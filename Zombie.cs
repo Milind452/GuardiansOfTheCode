@@ -8,6 +8,11 @@ namespace GuardiansOfTheCode
 
         public int Level => _level;
 
+        public int OvertimeDamage { get; set; }
+        public int Armor { get; set; }
+        public bool Paralyzed { get; set; }
+        public int ParalyzedFor { get; set; }
+
         public Zombie(int health, int level)
         {
             _health = health;
