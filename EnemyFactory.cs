@@ -1,8 +1,77 @@
 namespace GuardiansOfTheCode
 {
-    public static class EnemyFactory
+    public class EnemyFactory
     {
-        public static Werewolf SpawnWerewolf(int areaLevel)
+        private int _areaLevel;
+        public int AreaLevel { get => _areaLevel; }
+
+        private Stack<Zombie> _zombiesPool = new();
+        private Stack<Werewolf> _werewolvesPool = new();
+        private Stack<Giant> _giantsPool = new();
+
+        #region Enemy status methods
+        private (int health, int level, int armor) GetZombieStatus(int areaLevel) 
+        {
+            int health, level, armor;
+            if (areaLevel < 3)
+            {
+                health = 66;
+                level = 2;
+                armor = 15;
+            }
+            else if (areaLevel >= 3 && areaLevel < 10)
+            {
+                health = 66;
+                level = 5;
+                armor = 15;
+            }
+            else
+            {
+                health = 100;
+                level = 8;
+                armor = 15;
+            }
+            return (health, level, armor);
+        }
+
+        private (int health, int level, int armor) GetWerewolfStatus(int areaLevel) 
+        {
+            int health, level, armor;
+            if (areaLevel < 5)
+            {
+                health = 100;
+                level = 12;
+                armor = 15;
+            }
+            else
+            {
+                health = 100;
+                level = 20;
+                armor = 15;
+            }
+            return (health, level, armor);
+        }
+
+        private (int health, int level, int armor) GetGiantStatus(int areaLevel) 
+        {
+            int health, level, armor;
+            if (areaLevel < 8)
+            {
+                health = 100;
+                level = 14;
+                armor = 15;
+            }
+            else
+            {
+                health = 100;
+                level = 32;
+                armor = 15;
+            }
+            return (health, level, armor);
+        }
+        #endregion
+
+        public Werewolf SpawnWerewolf(int areaLevel)
         {
             if (areaLevel < 5)
             {
@@ -14,7 +83,7 @@ namespace GuardiansOfTheCode
             }
         }
 
-        public static Giant SpawnGiant(int areaLevel)
+        public Giant SpawnGiant(int areaLevel)
         {
             if (areaLevel < 8)
             {
@@ -26,7 +95,7 @@ namespace GuardiansOfTheCode
             }
         }
 
-        public static Zombie SpawnZombie(int areaLevel)
+        public Zombie SpawnZombie(int areaLevel)
         {
             if (areaLevel < 3)
             {
