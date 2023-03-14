@@ -71,6 +71,63 @@ namespace GuardiansOfTheCode
         }
         #endregion
 
+        #region PreLoad enemies methods
+        private void PreLoadZombies()
+        {
+            int count, health, armor, level;
+            if (_areaLevel < 3)
+            {
+                count = 15;
+            }
+            else if (_areaLevel >= 3 && _areaLevel < 10)
+            {
+                count = 50;
+            }
+            else
+            {
+                count = 200;
+            }
+            (health, level, armor) = GetZombieStatus(_areaLevel);
+            for(int i = 0; i < count; i++){
+                _zombiesPool.Push(new Zombie(health, level, armor));
+            }
+        }
+
+        private void PreLoadWerewolves()
+        {
+            int count, health, armor, level;
+            if (_areaLevel < 5)
+            {
+                count = 15;
+            }
+            else
+            {
+                count = 50;
+            }
+            (health, level, armor) = GetWerewolfStatus(_areaLevel);
+            for(int i = 0; i < count; i++){
+                _werewolvesPool.Push(new Werewolf(health, level, armor));
+            }
+        }
+
+        private void PreLoadGiants()
+        {
+            int count, health, armor, level;
+            if (_areaLevel < 8)
+            {
+                count = 25;
+            }
+            else
+            {
+                count = 100;
+            }
+            (health, level, armor) = GetGiantStatus(_areaLevel);
+            for(int i = 0; i < count; i++){
+                _giantsPool.Push(new Giant(health, level, armor));
+            }
+        }
+        #endregion
+
         public Werewolf SpawnWerewolf(int areaLevel)
         {
             if (areaLevel < 5)
