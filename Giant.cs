@@ -13,10 +13,11 @@ namespace GuardiansOfTheCode
         public bool Paralyzed { get; set; }
         public int ParalyzedFor { get; set; }
 
-        public Giant(int health, int level)
+        public Giant(int health, int level, int armor)
         {
             _health = health;
             _level = level;
+            Armor = armor;
         }
 
         public void Attack(PrimaryPlayer player)
