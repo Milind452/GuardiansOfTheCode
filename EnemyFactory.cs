@@ -154,44 +154,42 @@ namespace GuardiansOfTheCode
         }
         #endregion
 
+        #region Spawn enemies methods
+        public Zombie SpawnZombie(int areaLevel)
+        {
+            if(_zombiesPool.Count > 0) 
+            {
+                return _zombiesPool.Pop();
+            } 
+            else 
+            {
+                throw new Exception("Zombies pool depleted");
+            }
+        }
+
         public Werewolf SpawnWerewolf(int areaLevel)
         {
-            if (areaLevel < 5)
+            if(_werewolvesPool.Count > 0) 
             {
-                return new Werewolf(100, 12);
-            }
-            else
+                return _werewolvesPool.Pop();
+            } 
+            else 
             {
-                return new Werewolf(100, 20);
+                throw new Exception("Werewolves pool depleted");
             }
         }
 
         public Giant SpawnGiant(int areaLevel)
         {
-            if (areaLevel < 8)
+            if(_giantsPool.Count > 0) 
             {
-                return new Giant(100, 14);
-            }
-            else
+                return _giantsPool.Pop();
+            } 
+            else 
             {
-                return new Giant(100, 32);
-            }
-        }
-
-        public Zombie SpawnZombie(int areaLevel)
-        {
-            if (areaLevel < 3)
-            {
-                return new Zombie(66, 2, 15);
-            }
-            else if (areaLevel >= 3 && areaLevel < 10)
-            {
-                return new Zombie(66, 5, 15);
-            }
-            else
-            {
-                return new Zombie(100, 8, 15);
+                throw new Exception("Giants pool depleted");
             }
         }
+        #endregion
     }
 }
