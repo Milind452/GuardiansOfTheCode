@@ -9,6 +9,14 @@ namespace GuardiansOfTheCode
         private Stack<Werewolf> _werewolvesPool = new();
         private Stack<Giant> _giantsPool = new();
 
+        public EnemyFactory(int areaLevel)
+        {
+            _areaLevel = areaLevel;
+            PreLoadZombies();
+            PreLoadWerewolves();
+            PreLoadGiants();
+        }
+
         #region Enemy status methods
         private (int health, int level, int armor) GetZombieStatus(int areaLevel) 
         {
