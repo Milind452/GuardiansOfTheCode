@@ -128,6 +128,32 @@ namespace GuardiansOfTheCode
         }
         #endregion
 
+        #region Reclaim enemies methods
+        public void ReclaimZombie(Zombie zombie)
+        {
+            (int health, int level, int armor) = GetZombieStatus(_areaLevel);
+            zombie.Health = health;
+            zombie.Armor = armor;
+            _zombiesPool.Push(zombie);
+        }
+
+        public void ReclaimWerewolf(Werewolf werewolf)
+        {
+            (int health, int level, int armor) = GetWerewolfStatus(_areaLevel);
+            werewolf.Health = health;
+            werewolf.Armor = armor;
+            _werewolvesPool.Push(werewolf);
+        }
+
+        public void ReclaimGiant(Giant giant)
+        {
+            (int health, int level, int armor) = GetGiantStatus(_areaLevel);
+            giant.Health = health;
+            giant.Armor = armor;
+            _giantsPool.Push(giant);
+        }
+        #endregion
+
         public Werewolf SpawnWerewolf(int areaLevel)
         {
             if (areaLevel < 5)
